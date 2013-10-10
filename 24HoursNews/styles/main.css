@@ -1,4 +1,4 @@
-.article-item
+article-item
 {
     height: 100px;
 }
@@ -27,4 +27,15 @@
 .article-item-content
 {
     font-size: 0.5em;
+}
+
+.full-article-container{
+    width:100%;
+}
+
+.full-article-image{
+    margin:0 15px;
+    width:80%;
+    max-width:400px;
+    height:auto;
 }

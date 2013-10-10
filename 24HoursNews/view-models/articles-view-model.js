@@ -4,12 +4,13 @@ var app = app || {};
     var articlesVM = kendo.observable({
         articles : [],
         navigateToFullArticle: function(e) {
-            app.application.navigate('views/routeView.html?article=' + e.data);
+            a.kendo.navigate('views/full-article.html#full-article?id=' + e.data.id);
         }
     });
     
     function initArticles(e) {
         dataPersister.getRss().then(function() {
+            console.log(dataPersister.articles);    
             articlesVM.set("articles", dataPersister.articles);
         });
         

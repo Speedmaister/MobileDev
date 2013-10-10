@@ -4,6 +4,7 @@ var app = app || {};
     google.load("feeds", "1");
     
     document.addEventListener("deviceready", function () {
-        a = new kendo.mobile.Application(document.body);
+        var kendoApp = new kendo.mobile.Application(document.body);
+        a.kendo = kendoApp;
     }, false);
 })(app);

@@ -16,15 +16,15 @@
         <script src="scripts/data/http-request.js"></script>
         <script src="scripts/data/data-persister.js"></script>
         <script src="view-models/articles-view-model.js"></script>
+        <script src="view-models/full-article-view-model.js"></script>
         <script src="scripts/app.js"></script>
     </head>
     <body>
-        <div id="home" data-role="view" data-title="Home" data-layout="main-layout"  data-show="app.articles.init">
-            <ul id="all-articles" data-role="listview" data-bind="source: articles" data-style="inset" 
-                data-template="article-snippet-template"></ul>
+        <div id="Hours" data-id="Hours" data-role="view" data-title="24Hours News" data-layout="main-layout"  
+             data-show="app.articles.init">
+            <ul id="all-articles" data-role="listview" data-bind="source: articles" data-style="inset"
+                data-template="articleSnippetTemplate"></ul>
         </div>
-        <div id="about" data-role="view" data-title="About" data-layout="main-layout"></div>
-        <div id="contacts" data-role="view" data-title="Contacts" data-layout="main-layout"></div>
         <div data-role="layout" data-id="main-layout">
             <div data-role="header">
                 <div data-role="navbar">
@@ -33,20 +33,17 @@
             </div>
             <div data-role="footer">
                 <div data-role="tabstrip">
-                    <a data-icon="home" href="#home">Home</a>
-                    <a data-icon="about" href="#about">About</a>
-                    <a data-icon="contacts" href="#contacts">Contacts</a>
+                    <a data-icon="favorites" href="#Hours">Home</a>
                 </div>
             </div>
         </div>
-        <script type="text/x-kendo-tmpl"  id="article-snippet-template">
-            <li class="article-item" data-bind="click: navigateToFullArticle">
-                <div class="article-item-image"> #if (image) {#
-                            #= image #
+        <script type="text/x-kendo-template" id="articleSnippetTemplate">
+          <li class="article-item" data-bind="click: navigateToFullArticle">
+                <div class="article-item-image"> #if (data.image) {#
+                            #= data.image #
                         #}#
                 </div>
-                <h4 class="article-item-title">#= title #</h4>
-                <!--<p class="article-item-content">#= content #</p>-->
+                <h4 class="article-item-title">#= data.title #</h4>
             </li>
         </script>
     </body>
