@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <meta charset="utf-8" />
+        <link href="kendo/styles/kendo.mobile.all.min.css" rel="stylesheet" />
+        <link href="styles/main.css" rel="stylesheet" />
+
+        <script src="cordova.js"></script>
+        <script src="kendo/js/jquery.min.js"></script>
+        <script src="kendo/js/kendo.mobile.min.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+
+        <script src="scripts/app.js"></script>
+
+    </head>
+    <body>
+        <div id="camera" data-id="camera" data-role="view" data-title="Camera" data-layout="main-layout">
+            <button data-role="button" id="take-picture-btn">Take Pic</button>
+            <img id="camera-image-frame" width="100" height="100"/>
+        </div>
+        <div id="capture" data-id="capture" data-role="view" data-title="Capture" data-layout="main-layout">
+            <button data-role="button" id="capture-btn">Capture Image</button>
+            <img id="capture-image-frame" width="100" height="100"/>
+        </div>
+        <div id="events" data-id="events" data-role="view" data-title="Events" data-layout="main-layout">
+            <p>
+                You will see event fired by connecting to the internet or disconnecting.
+            </p>
+            <p style="font-size:1.5em" id="events-indicator"></p>
+        </div>
+        <div data-role="layout" id="main-layout" data-id="main-layout">
+            <header data-role="header">
+                <div data-role="navbar">
+                    <span data-role="view-title"></span>
+                </div>
+            </header>
+            <div data-role="footer">
+                <div data-role="tabstrip">
+                    <a data-icon="camera" href="#camera"/>
+                    <a data-icon="more" href="#capture"/>
+                    <a data-icon="action" href="#events"/>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
