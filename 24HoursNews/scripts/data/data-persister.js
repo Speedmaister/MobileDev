@@ -1,5 +1,5 @@
 window.dataPersister = (function() {
-    var baseUrl = "http://localhost:20017/api/";
+    var baseUrl = "http://htmlparserapi.apphb.com/api/";
     var articles = [];
     
     function getArticle(url) {
