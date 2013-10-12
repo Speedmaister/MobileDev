@@ -1,5 +1,6 @@
 window.dataPersister = (function() {
     var baseUrl = "http://htmlparserapi.apphb.com/api/";
+    var weatherUrl = "http://htmlparserapi.apphb.com/api/weather/get?url=http://api.openweathermap.org/data/2.1/find/name?q=";
     var articles = [];
     
     function getArticle(url) {
@@ -26,6 +27,7 @@ window.dataPersister = (function() {
             feed.setNumEntries(50);
             feed.load(function(result) {
                 if (!result.error) {
+                    clearCache();
                     var i;
                     for (i = 0; i < result.feed.entries.length; i++) {
                         var article = {};
@@ -57,6 +59,14 @@ window.dataPersister = (function() {
         return promise;
     }
     
+    function clearCache() {
+        var i;
+        var length = articles.length;
+        for (i=0;i < length;i++) {
+            articles.pop();
+        }
+    }
+    
     function getContent(content) {
         var indexOfSecondBracket = content.indexOf(">");
         var textContent = content.substr(indexOfSecondBracket + 1, content.length - indexOfSecondBracket - 1);
@@ -71,8 +81,15 @@ window.dataPersister = (function() {
             return image;
         }
     }
+
+    function getWeatherReport(city, country) {
+        var query = city.replace(/[\s]/, "") + "," + country;
+        var url = weatherUrl+query;
+        return httpRequest.getJson(url);
+    }
     
     return {
+        getWeather:getWeatherReport,
         getArticle:getArticle,
         getArticleById:getArticleById,
         getRss:getRss,

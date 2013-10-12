@@ -1,0 +1,10 @@
+<<div id="weather" data-id="weather" data-role="view" data-title="Weather" data-layout="main-layout"  data-show="app.weather.init">
+    <div class="weather-container" data-template="weatherTemplate" data-bind="source: forecast">
+
+    </div>
+</div>
+<script type="text/x-kendo-template" id="weatherTemplate">
+    <h2>Temp: #: data.temp# C</h2>
+    <h4>Forecast: #: data.forecast#</h4>
+    <img width="200" height="200" src="#: data.icon #" />
+</script>

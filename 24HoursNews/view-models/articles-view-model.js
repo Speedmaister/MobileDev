@@ -10,7 +10,6 @@ var app = app || {};
     
     function initArticles(e) {
         dataPersister.getRss().then(function() {
-            console.log(dataPersister.articles);    
             articlesVM.set("articles", dataPersister.articles);
         });
         

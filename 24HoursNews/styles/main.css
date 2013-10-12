@@ -18,7 +18,7 @@ article-item
     margin: 5px;
     padding: 0;
     font-size: 0.8em;
-    width:auto ;
+    width: auto;
     overflow: hidden; /* "overflow" value must be different from "visible" */ 
 
     text-overflow: ellipsis;
@@ -29,13 +29,27 @@ article-item
     font-size: 0.5em;
 }
 
-.full-article-container{
-    width:100%;
+.km-weather-e:after,
+.km-weather-e:before
+{
+    content: "\e063";
 }
 
-.full-article-image{
-    margin:0 15px;
-    width:80%;
-    max-width:400px;
-    height:auto;
+.km-news-e:after,
+.km-news-e:before
+{
+    content: "\e0f1";
+}
+
+.full-article-container
+{
+    width: 100%;
+}
+
+.full-article-image
+{
+    margin: 0 15px;
+    width: 80%;
+    max-width: 400px;
+    height: auto;
 }
