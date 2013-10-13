@@ -53,3 +53,12 @@ article-item
     max-width: 400px;
     height: auto;
 }
+
+.contact-item{
+    font-size:0.5em;
+    height:4em;
+}
+
+.partial-article-container{
+    background-color:WindowFrame;
+}

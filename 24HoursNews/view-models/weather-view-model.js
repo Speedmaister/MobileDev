@@ -21,14 +21,14 @@ var app = app || {};
     }
 
     function errorFunction(err) {
-        navigator.notification.alert(err.message);
+        console.log(err.message);
     }
 
     function initialize() {
         geocoder = new google.maps.Geocoder();
         document.addEventListener("deviceready", function(e) {
             if (navigator.geolocation) {
-                watch = navigator.geolocation.watchPosition(successFunction, errorFunction, {timeout:30000});
+                watch = navigator.geolocation.watchPosition(successFunction, errorFunction, {timeout:30000,enableHighAccuracy: true});
             }
         }, false);
     }
@@ -40,14 +40,15 @@ var app = app || {};
                 if (results[0]) {
                     city = results[0].address_components[2].short_name;
                     country = results[0].address_components[4].short_name;
-                    dataPersister.getWeather(city, country).then(function(weather) {
+                    dataPersister.getWeather(city, country).then(function(text) {
+                        var weather = JSON.parse(text);
                         var forecast = {};
                         forecast.temp = (weather.list[0].main.temp - 274.15).toString().substr(0, 4);
                         forecast.forecast = weather.list[0].weather[0].description.toUpperCase();
                         getImageUrl(weather.list[0].weather[0].id);
                         weatherVM.set("forecast", forecast);
-                    },function(error){
-                        console.log(error);
+                    }, function(error) {
+                        navigator.notification.alert(error);
                     });
                 }
                 else {

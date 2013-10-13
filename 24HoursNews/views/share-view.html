@@ -1,0 +1,14 @@
+<div id="share" data-id="share" data-role="view" data-title="Share News" data-layout="main-layout"  data-show="app.share.init">
+    <div class="partial-article-container" data-bind="source: partialArticle" data-template="partialArticleTemplate">
+    </div>
+    <p>Choose a contact to share the article :</p>
+    <ul id="contacts-list" data-role="listview" data-bind="source: contacts" data-template="contactTemplate" data-style="inset"></ul>
+</div>
+<script type="text/x-kendo-template" id="partialArticleTemplate">
+    <h2 class="full-article-title">#= data.title #</h2>
+</script>
+<script type="text/x-kendo-template" id="contactTemplate">
+    <li class="contact-item">
+        <h2 class="full-article-title">#= data.displayName #</h2>
+    </li>
+</script>
