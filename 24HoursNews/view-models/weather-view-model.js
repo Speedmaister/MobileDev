@@ -2,7 +2,9 @@ var app = app || {};
 
 (function(a) {
     var weatherVM = kendo.observable({
-        forecast : {}
+        forecast : {
+            temp:undefined
+        }
     });
     var geocoder;
     var city;
@@ -12,6 +14,9 @@ var app = app || {};
     
     function initWeather(e) {
         kendo.bind(e.view.element, weatherVM);
+        if(weatherVM.forecast.temp){
+            
+        }
     }
     //Get the latitude and the longitude;
     function successFunction(position) {

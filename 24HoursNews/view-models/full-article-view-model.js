@@ -4,7 +4,8 @@ var app = app || {};
     var fullArticleVM = kendo.observable({
         fullArticle : {},
         shareArticalWithContact:function(e) {
-            a.kendo.navigate('views/share-view.html#share?id='+fullArticleVM.fullArticle.id);
+            //a.kendo.navigate('views/share-view.html#share?id='+fullArticleVM.fullArticle.id);
+            navigator.notification.confirm("Are you sure you want to share this article?", navigateToShareView, "Confirm", "Yes,No");
         }
     });
     
@@ -22,6 +23,12 @@ var app = app || {};
         
         kendo.bind(e.view.element, fullArticleVM);
     }  
+    
+    function navigateToShareView(buttonIndex) {
+        if (buttonIndex == 1) {
+            a.kendo.navigate('views/share-view.html#share?id=' + fullArticleVM.fullArticle.id);
+        }
+    }
     
     function getImageSource(source) {
         var indexOfSrcTag = source.indexOf("src=\"");

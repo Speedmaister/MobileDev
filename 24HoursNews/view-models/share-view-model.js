@@ -4,7 +4,10 @@ var app = app || {};
     var shareVM = kendo.observable({
         partialArticle : {},
         contacts:[],
-        performSearch:function(e) {
+        itemInvoked:function(e) {
+            var contactNumber = e.data.phoneNumbers[0].value;
+            console.log(contactNumber);
+            window.location.href = "sms:" + contactNumber + "?body=" + shareVM.partialArticle.url;
         }
     });
     
@@ -36,7 +39,7 @@ var app = app || {};
         var options = new ContactFindOptions();
         options.filter = "";
         options.multiple = true;
-        var fields = ["displayName", "name"];
+        var fields = ["displayName", "phoneNumbers"];
         navigator.contacts.find(fields, onSuccess, onError, options);
     }, false);
     

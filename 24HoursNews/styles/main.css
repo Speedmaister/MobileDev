@@ -62,3 +62,7 @@ article-item
 .partial-article-container{
     background-color:WindowFrame;
 }
+
+.share-button{
+    margin:20px 130px;
+}
