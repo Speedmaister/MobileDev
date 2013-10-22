@@ -36,11 +36,11 @@ var app = app || {};
     }  
     
     document.addEventListener("deviceready", function(e) {
-        var options = new ContactFindOptions();
+       /* var options = new ContactFindOptions();
         options.filter = "";
         options.multiple = true;
         var fields = ["displayName", "phoneNumbers"];
-        navigator.contacts.find(fields, onSuccess, onError, options);
+        navigator.contacts.find(fields, onSuccess, onError, options);*/
     }, false);
     
     kendo.init($("k-input"));
